@@ -45,17 +45,6 @@ I turn ambiguous product ideas into working software, then follow the real logs,
   <img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker" height="26">
 </p>
 
-## Research shelf
-
-Public forks I keep to study architecture, implementation details, and product direction.
-
-| AI systems | Product experiments |
-| --- | --- |
-| [claude-code](https://github.com/huixiangyang/claude-code) - agentic coding research snapshot | [RedInk](https://github.com/huixiangyang/RedInk) - AI-assisted visual content generation |
-| [graph-rag-agent](https://github.com/huixiangyang/graph-rag-agent) - graph retrieval and deep search | [LandPPT](https://github.com/huixiangyang/LandPPT) - document-to-presentation generation |
-| [dify](https://github.com/huixiangyang/dify) - LLM application workflows and operations | [moemail](https://github.com/huixiangyang/moemail) - serverless temporary email product |
-| [gpt-load](https://github.com/huixiangyang/gpt-load) - multi-channel AI proxy infrastructure | [cloudflare_temp_email](https://github.com/huixiangyang/cloudflare_temp_email) - email services on Cloudflare |
-
 ## Engineering principles
 
 1. Start from the real entry point and trace the complete data path.
