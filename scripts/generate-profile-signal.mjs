@@ -5,17 +5,49 @@ import { fileURLToPath } from "node:url";
 const PROFILE_USER = process.env.PROFILE_USER || "huixiangyang";
 const API_TOKEN = process.env.GITHUB_TOKEN || "";
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
-const OUTPUT_PATH = resolve(SCRIPT_DIR, "../assets/profile-signal.svg");
+const OUTPUT_PATHS = {
+  light: resolve(SCRIPT_DIR, "../assets/profile-signal-light.svg"),
+  dark: resolve(SCRIPT_DIR, "../assets/profile-signal-dark.svg"),
+};
 
 const THOUGHTS = [
-  "TRACE THE REAL PATH",
-  "MAKE STATE VISIBLE",
-  "SMALL SURFACES, STRONG CONTRACTS",
-  "SHIP THE WHOLE LOOP",
-  "CALM INTERFACE, RIGOROUS SYSTEM",
-  "MEASURE BEFORE YOU GUESS",
-  "BUILD FOR THE NEXT HANDOFF",
+  "Trace the real path.",
+  "Make state visible.",
+  "Small surfaces. Strong contracts.",
+  "Ship the whole loop.",
+  "Calm interface. Rigorous system.",
+  "Measure before you guess.",
+  "Build for the next handoff.",
 ];
+
+const THEMES = {
+  light: {
+    background: "#efede6",
+    backgroundAlt: "#e7e3da",
+    text: "#171b1c",
+    textSoft: "#566261",
+    textFaint: "#7c8683",
+    line: "#bbc1bc",
+    lineStrong: "#909b98",
+    accent: "#155367",
+    accentSoft: "#76a5af",
+    warm: "#c45f43",
+    pointFill: "#efede6",
+  },
+  dark: {
+    background: "#0d1011",
+    backgroundAlt: "#13191a",
+    text: "#e9ebe5",
+    textSoft: "#9ba6a2",
+    textFaint: "#687371",
+    line: "#2b3435",
+    lineStrong: "#465354",
+    accent: "#6ba9b5",
+    accentSoft: "#356979",
+    warm: "#d27b60",
+    pointFill: "#0d1011",
+  },
+};
 
 const ENGINEERING_EVENT_TYPES = new Set([
   "CreateEvent",
@@ -125,10 +157,10 @@ function summarize(events, now) {
 }
 
 function createSignalGeometry(signal) {
-  const startX = 437;
-  const endX = 872;
-  const baseline = 254;
-  const maxHeight = 88;
+  const startX = 624;
+  const endX = 1144;
+  const baseline = 292;
+  const maxHeight = 116;
   const maxCount = Math.max(1, ...signal.map((day) => day.count));
   const step = (endX - startX) / (signal.length - 1);
   const points = signal.map((day, index) => {
@@ -138,158 +170,190 @@ function createSignalGeometry(signal) {
   });
 
   return {
-    polyline: points.map(({ x, y }) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" "),
-    bars: points
+    linePath: points
+      .map(({ x, y }, index) => `${index === 0 ? "M" : "L"}${x.toFixed(1)} ${y.toFixed(1)}`)
+      .join(" "),
+    areaPath: [
+      `M${startX} ${baseline}`,
+      ...points.map(({ x, y }) => `L${x.toFixed(1)} ${y.toFixed(1)}`),
+      `L${endX} ${baseline}`,
+      "Z",
+    ].join(" "),
+    guides: points
       .map(
         ({ x, y, count }, index) => `
-          <line class="signal-bar" x1="${x.toFixed(1)}" y1="${baseline}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" opacity="${count ? 0.34 : 0.1}" />
-          <circle class="signal-point point-${index}" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${count ? 3.4 : 2}" />`,
+          <line class="day-rule" x1="${x.toFixed(1)}" y1="158" x2="${x.toFixed(1)}" y2="${baseline}" opacity="${count ? 0.44 : 0.2}" />
+          <circle class="signal-point point-${index}" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${count ? 4.4 : 2.2}" />`,
       )
       .join("")
       .trim(),
+    endpoint: points.at(-1),
   };
 }
 
-function renderSvg(summary, now) {
+function wrapThought(text, limit = 27) {
+  const words = text.split(" ");
+  const lines = [];
+  let current = "";
+
+  for (const word of words) {
+    const candidate = current ? `${current} ${word}` : word;
+    if (candidate.length > limit && current) {
+      lines.push(current);
+      current = word;
+    } else {
+      current = candidate;
+    }
+  }
+
+  if (current) {
+    lines.push(current);
+  }
+
+  return lines.slice(0, 2);
+}
+
+function renderSvg(summary, now, themeName) {
+  const palette = THEMES[themeName];
   const dayIndex = Math.floor(now.getTime() / (24 * 60 * 60 * 1000));
   const thought = THOUGHTS[dayIndex % THOUGHTS.length];
-  const syncLabel = new Intl.DateTimeFormat("en-CA", {
+  const thoughtLines = wrapThought(thought);
+  const syncLabel = new Intl.DateTimeFormat("en-GB", {
     timeZone: "Asia/Shanghai",
     year: "numeric",
-    month: "2-digit",
+    month: "short",
     day: "2-digit",
     hour: "2-digit",
     minute: "2-digit",
     hour12: false,
   })
     .format(now)
-    .replace(",", "");
-  const { polyline, bars } = createSignalGeometry(summary.signal);
+    .replace(",", "")
+    .toUpperCase();
+  const { linePath, areaPath, guides, endpoint } = createSignalGeometry(summary.signal);
 
   const metrics = [
-    ["PUSH EVENTS", summary.pushes],
-    ["ACTIVE DAYS", summary.activeDays],
-    ["REPOS TOUCHED", summary.repositories],
-    ["PULL REQUESTS", summary.pullRequests],
+    ["01", "PUSH EVENTS", summary.pushes],
+    ["02", "ACTIVE DAYS", summary.activeDays],
+    ["03", "REPOS TOUCHED", summary.repositories],
+    ["04", "PULL REQUESTS", summary.pullRequests],
   ];
-
   const metricMarkup = metrics
-    .map(([label, value], index) => {
-      const x = 52 + (index % 2) * 170;
-      const y = 158 + Math.floor(index / 2) * 88;
+    .map(([indexLabel, label, value], index) => {
+      const x = 56 + index * 284;
       return `
-        <g transform="translate(${x} ${y})">
-          <text class="metric-value" x="0" y="0">${escapeXml(value)}</text>
-          <text class="metric-label" x="0" y="24">${escapeXml(label)} / 90D</text>
+        <g transform="translate(${x} 359)">
+          <text class="metric-index" x="0" y="0">${indexLabel}</text>
+          <text class="metric-value" x="38" y="0">${escapeXml(value)}</text>
+          <text class="metric-label" x="38" y="22">${escapeXml(label)} / 90D</text>
         </g>`;
     })
     .join("")
     .trim();
+  const thoughtMarkup = thoughtLines
+    .map(
+      (line, index) =>
+        `<tspan x="56" dy="${index === 0 ? 0 : 35}">${escapeXml(line)}</tspan>`,
+    )
+    .join("");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title description">
-  <title id="title">Yang Huixiang engineering signal observatory</title>
-  <desc id="description">A live visual summary of recent public GitHub activity, generated daily.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="410" viewBox="0 0 1200 410" role="img" aria-labelledby="title description">
+  <title id="title">Yang Huixiang live engineering field note</title>
+  <desc id="description">An editorial visualization of recent public GitHub activity, generated daily.</desc>
 
   <defs>
-    <linearGradient id="panelGlow" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#0d171a" />
-      <stop offset="0.54" stop-color="#081113" />
-      <stop offset="1" stop-color="#071013" />
+    <linearGradient id="surface" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="${palette.background}" />
+      <stop offset="0.64" stop-color="${palette.background}" />
+      <stop offset="1" stop-color="${palette.backgroundAlt}" />
     </linearGradient>
-    <linearGradient id="signalGradient" x1="437" y1="0" x2="872" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#65f6d2" />
-      <stop offset="0.52" stop-color="#b7f976" />
-      <stop offset="1" stop-color="#ffb45b" />
+    <linearGradient id="signalStroke" x1="624" y1="0" x2="1144" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="${palette.accentSoft}" />
+      <stop offset="0.68" stop-color="${palette.accent}" />
+      <stop offset="1" stop-color="${palette.warm}" />
     </linearGradient>
-    <radialGradient id="coreGlow">
-      <stop offset="0" stop-color="#b7f976" stop-opacity="0.24" />
-      <stop offset="0.45" stop-color="#65f6d2" stop-opacity="0.08" />
-      <stop offset="1" stop-color="#65f6d2" stop-opacity="0" />
-    </radialGradient>
-    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#9fd8ca" stroke-opacity="0.045" stroke-width="1" />
+    <linearGradient id="signalArea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="${palette.accent}" stop-opacity="0.18" />
+      <stop offset="1" stop-color="${palette.accent}" stop-opacity="0" />
+    </linearGradient>
+    <pattern id="paper" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="0.6" fill="${palette.text}" opacity="0.045" />
     </pattern>
-    <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="5" result="blur" />
-      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-    </filter>
-    <clipPath id="panelClip"><rect width="1200" height="360" rx="22" /></clipPath>
+    <clipPath id="panelClip"><rect width="1200" height="410" rx="18" /></clipPath>
   </defs>
 
   <style>
-    .display { font-family: "Arial Narrow", "Roboto Condensed", sans-serif; font-weight: 700; letter-spacing: 0.14em; }
-    .mono { font-family: "SFMono-Regular", "Cascadia Code", "Liberation Mono", monospace; }
-    .eyebrow { fill: #84a49c; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 10px; letter-spacing: 0.21em; }
-    .title { fill: #e7f4ef; font-family: "Arial Narrow", "Roboto Condensed", sans-serif; font-size: 27px; font-weight: 700; letter-spacing: 0.12em; }
-    .metric-value { fill: #e7f4ef; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 26px; font-weight: 700; }
-    .metric-label { fill: #77958e; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 8px; letter-spacing: 0.14em; }
-    .section-label { fill: #8ba9a1; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 9px; letter-spacing: 0.19em; }
-    .thought { fill: #d6e8e2; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.11em; }
-    .status { fill: #b7f976; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; }
-    .micro { fill: #66847d; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 8px; letter-spacing: 0.12em; }
-    .signal-bar { stroke: #65f6d2; stroke-width: 1; }
-    .signal-point { fill: #0a1416; stroke: #83e8ce; stroke-width: 1.4; }
-    .signal-line { fill: none; stroke: url(#signalGradient); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; filter: url(#softGlow); stroke-dasharray: 8 8; animation: flow 7s linear infinite; }
-    .scan-line { fill: url(#signalGradient); opacity: 0.12; animation: scan 7s ease-in-out infinite; }
-    .core-pulse { transform-origin: 1037px 184px; animation: breathe 3.8s ease-in-out infinite; }
-    .status-dot { animation: blink 2.2s steps(2, end) infinite; }
-    @keyframes flow { to { stroke-dashoffset: -64; } }
-    @keyframes scan { 0%, 12% { transform: translateY(-24px); } 82%, 100% { transform: translateY(410px); } }
-    @keyframes breathe { 0%, 100% { transform: scale(0.92); opacity: 0.62; } 50% { transform: scale(1.06); opacity: 1; } }
-    @keyframes blink { 0%, 58% { opacity: 1; } 59%, 100% { opacity: 0.3; } }
+    .label { fill: ${palette.textSoft}; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 9px; letter-spacing: 0.18em; }
+    .micro { fill: ${palette.textFaint}; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 8px; letter-spacing: 0.12em; }
+    .headline { fill: ${palette.text}; font-family: Georgia, "Times New Roman", serif; font-size: 54px; font-weight: 400; letter-spacing: -0.035em; }
+    .headline-accent { fill: ${palette.warm}; font-style: italic; }
+    .principle { fill: ${palette.text}; font-family: Georgia, "Times New Roman", serif; font-size: 27px; font-style: italic; letter-spacing: -0.01em; }
+    .mode { fill: ${palette.accent}; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.16em; }
+    .metric-index { fill: ${palette.warm}; font-family: Georgia, "Times New Roman", serif; font-size: 13px; font-style: italic; }
+    .metric-value { fill: ${palette.text}; font-family: Georgia, "Times New Roman", serif; font-size: 25px; }
+    .metric-label { fill: ${palette.textFaint}; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 8px; letter-spacing: 0.12em; }
+    .day-rule { stroke: ${palette.line}; stroke-width: 1; }
+    .signal-point { fill: ${palette.pointFill}; stroke: ${palette.accent}; stroke-width: 1.4; }
+    .signal-line { fill: none; stroke: url(#signalStroke); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 3 7; animation: drift 18s linear infinite; }
+    .orbit { transform-origin: 934px 208px; animation: orbit 36s linear infinite; }
+    .endpoint-ring { transform-origin: ${endpoint.x.toFixed(1)}px ${endpoint.y.toFixed(1)}px; animation: pulse 3.4s ease-in-out infinite; }
+    @keyframes drift { to { stroke-dashoffset: -80; } }
+    @keyframes orbit { to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%, 100% { transform: scale(0.74); opacity: 0.15; } 50% { transform: scale(1.35); opacity: 0.5; } }
     @media (prefers-reduced-motion: reduce) {
-      .signal-line, .scan-line, .core-pulse, .status-dot { animation: none; }
+      .signal-line, .orbit, .endpoint-ring { animation: none; }
     }
   </style>
 
   <g clip-path="url(#panelClip)">
-    <rect width="1200" height="360" rx="22" fill="url(#panelGlow)" />
-    <rect width="1200" height="360" fill="url(#grid)" />
-    <rect class="scan-line" x="0" y="-20" width="1200" height="2" />
-    <circle cx="1037" cy="184" r="190" fill="url(#coreGlow)" />
-    <path d="M0 82H1200M397 82V360M918 82V360" stroke="#9fd8ca" stroke-opacity="0.12" />
+    <rect width="1200" height="410" rx="18" fill="url(#surface)" />
+    <rect width="1200" height="410" fill="url(#paper)" />
+    <path d="M594 28V318M32 326H1168" fill="none" stroke="${palette.line}" />
+    <path d="M16 82H42M16 124H28M1172 82H1184M1158 124H1184" fill="none" stroke="${palette.lineStrong}" stroke-width="1" />
+    <g class="orbit" fill="none" stroke="${palette.line}" stroke-width="1">
+      <ellipse cx="934" cy="208" rx="224" ry="108" />
+      <ellipse cx="934" cy="208" rx="176" ry="78" stroke-dasharray="2 8" />
+      <path d="M710 208H1158M934 100V316" stroke-opacity="0.54" />
+    </g>
   </g>
 
-  <rect x="0.75" y="0.75" width="1198.5" height="358.5" rx="21.25" fill="none" stroke="#98c7bb" stroke-opacity="0.22" stroke-width="1.5" />
+  <rect x="0.75" y="0.75" width="1198.5" height="408.5" rx="17.25" fill="none" stroke="${palette.lineStrong}" stroke-opacity="0.72" stroke-width="1.5" />
 
-  <g transform="translate(34 28)">
+  <g transform="translate(56 39)">
     <!-- Lucide Activity 图标 -->
-    <g transform="translate(0 0) scale(0.72)" fill="none" stroke="#65f6d2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <g transform="translate(0 -4) scale(0.7)" fill="none" stroke="${palette.accent}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
     </g>
-    <text class="eyebrow" x="29" y="11">YHX / SIGNAL OBSERVATORY</text>
+    <text class="label" x="30" y="8">YANG HUIXIANG / LIVE FIELD NOTE</text>
   </g>
-  <text class="title" x="34" y="62">ENGINEERING TELEMETRY</text>
-  <text class="micro" x="1162" y="43" text-anchor="end">SYNC ${escapeXml(syncLabel)} CST</text>
+  <text class="micro" x="1144" y="47" text-anchor="end">UPDATED ${escapeXml(syncLabel)} CST</text>
+
+  <text class="headline" x="56" y="121">
+    <tspan>Work</tspan><tspan class="headline-accent"> / </tspan><tspan>in motion</tspan>
+  </text>
+  <text class="label" x="58" y="151">PUBLIC ENGINEERING ACTIVITY, RENDERED AS A DAILY FIELD NOTE</text>
+
+  <text class="label" x="56" y="211">TODAY&apos;S OPERATING PRINCIPLE</text>
+  <text class="principle" x="56" y="252">${thoughtMarkup}</text>
+  <line x1="56" y1="302" x2="168" y2="302" stroke="${palette.warm}" stroke-width="2" />
+  <circle cx="181" cy="302" r="3" fill="${palette.accent}" />
+  <text class="mode" x="197" y="306">${escapeXml(summary.mode)}</text>
 
   <g>
-    <text class="section-label" x="34" y="112">PUBLIC ACTIVITY ARRAY</text>
-    ${metricMarkup}
+    <text class="label" x="624" y="126">FOURTEEN-DAY FIELD TRACE</text>
+    <text class="micro" x="1144" y="126" text-anchor="end">EVENT DENSITY / UTC</text>
+    <path d="${areaPath}" fill="url(#signalArea)" />
+    ${guides}
+    <path class="signal-line" d="${linePath}" />
+    <circle class="endpoint-ring" cx="${endpoint.x.toFixed(1)}" cy="${endpoint.y.toFixed(1)}" r="12" fill="none" stroke="${palette.warm}" stroke-width="1" />
+    <circle cx="${endpoint.x.toFixed(1)}" cy="${endpoint.y.toFixed(1)}" r="3.4" fill="${palette.warm}" />
+    <text class="micro" x="624" y="311">T−13 DAYS</text>
+    <text class="micro" x="1144" y="311" text-anchor="end">PRESENT</text>
   </g>
 
-  <g>
-    <text class="section-label" x="429" y="112">FOURTEEN DAY SIGNAL</text>
-    <line x1="437" y1="254" x2="872" y2="254" stroke="#9fd8ca" stroke-opacity="0.17" />
-    <line x1="437" y1="210" x2="872" y2="210" stroke="#9fd8ca" stroke-opacity="0.08" stroke-dasharray="3 7" />
-    ${bars}
-    <polyline class="signal-line" points="${polyline}" />
-    <text class="micro" x="437" y="281">T−13D</text>
-    <text class="micro" x="872" y="281" text-anchor="end">NOW</text>
-    <text class="section-label" x="429" y="316">TODAY&apos;S OPERATING PRINCIPLE</text>
-    <text class="thought" x="872" y="318" text-anchor="end">${escapeXml(thought)}</text>
-  </g>
-
-  <g>
-    <circle class="core-pulse" cx="1037" cy="184" r="112" fill="none" stroke="#65f6d2" stroke-opacity="0.08" />
-    <circle cx="1037" cy="184" r="78" fill="#0a1517" fill-opacity="0.58" stroke="#8bc8b8" stroke-opacity="0.2" />
-    <circle cx="1037" cy="184" r="59" fill="none" stroke="#b7f976" stroke-opacity="0.18" stroke-dasharray="2 7" />
-    <circle class="status-dot" cx="1037" cy="153" r="5" fill="#b7f976" filter="url(#softGlow)" />
-    <text class="status" x="1037" y="188" text-anchor="middle">${escapeXml(summary.mode)}</text>
-    <text class="micro" x="1037" y="208" text-anchor="middle">OBSERVE / TRACE / SHIP</text>
-    <path d="M1037 77v20M1037 271v20M930 184h20M1124 184h20" stroke="#7eb7a9" stroke-opacity="0.22" />
-    <text class="micro" x="1037" y="325" text-anchor="middle">AUTO-GENERATED FROM PUBLIC EVENTS</text>
-  </g>
+  ${metricMarkup}
+  <text class="micro" x="1144" y="392" text-anchor="end">OBSERVE / TRACE / SHIP</text>
 </svg>
 `;
 }
@@ -298,11 +362,13 @@ async function main() {
   const now = new Date();
   const events = await fetchPublicEvents();
   const summary = summarize(events, now);
-  const svg = renderSvg(summary, now);
 
-  await mkdir(dirname(OUTPUT_PATH), { recursive: true });
-  await writeFile(OUTPUT_PATH, svg, "utf8");
-  console.log(`Generated ${OUTPUT_PATH} from ${events.length} public events.`);
+  for (const [themeName, outputPath] of Object.entries(OUTPUT_PATHS)) {
+    const svg = renderSvg(summary, now, themeName);
+    await mkdir(dirname(outputPath), { recursive: true });
+    await writeFile(outputPath, svg, "utf8");
+    console.log(`Generated ${outputPath} from ${events.length} public events.`);
+  }
 }
 
 main().catch((error) => {

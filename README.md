@@ -14,16 +14,20 @@ I turn ambiguous product ideas into working software, then follow the real logs,
 
 [Personal website](https://yanghuixiang.cn) | [GitHub repositories](https://github.com/huixiangyang?tab=repositories)
 
-## Live engineering signal
+## Live field note
 
 <a href="https://github.com/huixiangyang/huixiangyang/actions/workflows/profile-signal.yml">
-  <img src="./assets/profile-signal.svg" alt="Live engineering signal generated from recent public GitHub activity" width="100%">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/profile-signal-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/profile-signal-light.svg">
+    <img src="./assets/profile-signal-light.svg" alt="Live engineering field note generated from recent public GitHub activity" width="100%">
+  </picture>
 </a>
 
 <sub>Generated daily from public GitHub events by this profile repository.</sub>
 
 <details>
-<summary><strong>Open the observatory console</strong></summary>
+<summary><strong>Read the operating notes</strong></summary>
 
 ```text
 operator@github:~$ ./inspect --human

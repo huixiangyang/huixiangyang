@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="410" viewBox="0 0 1200 410" role="img" aria-labelledby="title description">
+  <title id="title">Yang Huixiang live engineering field note</title>
+  <desc id="description">An editorial visualization of recent public GitHub activity, generated daily.</desc>
+
+  <defs>
+    <linearGradient id="surface" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#efede6" />
+      <stop offset="0.64" stop-color="#efede6" />
+      <stop offset="1" stop-color="#e7e3da" />
+    </linearGradient>
+    <linearGradient id="signalStroke" x1="624" y1="0" x2="1144" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#76a5af" />
+      <stop offset="0.68" stop-color="#155367" />
+      <stop offset="1" stop-color="#c45f43" />
+    </linearGradient>
+    <linearGradient id="signalArea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#155367" stop-opacity="0.18" />
+      <stop offset="1" stop-color="#155367" stop-opacity="0" />
+    </linearGradient>
+    <pattern id="paper" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="0.6" fill="#171b1c" opacity="0.045" />
+    </pattern>
+    <clipPath id="panelClip"><rect width="1200" height="410" rx="18" /></clipPath>
+  </defs>
+
+  <style>
+    .label { fill: #566261; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 9px; letter-spacing: 0.18em; }
+    .micro { fill: #7c8683; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 8px; letter-spacing: 0.12em; }
+    .headline { fill: #171b1c; font-family: Georgia, "Times New Roman", serif; font-size: 54px; font-weight: 400; letter-spacing: -0.035em; }
+    .headline-accent { fill: #c45f43; font-style: italic; }
+    .principle { fill: #171b1c; font-family: Georgia, "Times New Roman", serif; font-size: 27px; font-style: italic; letter-spacing: -0.01em; }
+    .mode { fill: #155367; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 9px; font-weight: 700; letter-spacing: 0.16em; }
+    .metric-index { fill: #c45f43; font-family: Georgia, "Times New Roman", serif; font-size: 13px; font-style: italic; }
+    .metric-value { fill: #171b1c; font-family: Georgia, "Times New Roman", serif; font-size: 25px; }
+    .metric-label { fill: #7c8683; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 8px; letter-spacing: 0.12em; }
+    .day-rule { stroke: #bbc1bc; stroke-width: 1; }
+    .signal-point { fill: #efede6; stroke: #155367; stroke-width: 1.4; }
+    .signal-line { fill: none; stroke: url(#signalStroke); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 3 7; animation: drift 18s linear infinite; }
+    .orbit { transform-origin: 934px 208px; animation: orbit 36s linear infinite; }
+    .endpoint-ring { transform-origin: 1144.0px 228.2px; animation: pulse 3.4s ease-in-out infinite; }
+    @keyframes drift { to { stroke-dashoffset: -80; } }
+    @keyframes orbit { to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%, 100% { transform: scale(0.74); opacity: 0.15; } 50% { transform: scale(1.35); opacity: 0.5; } }
+    @media (prefers-reduced-motion: reduce) {
+      .signal-line, .orbit, .endpoint-ring { animation: none; }
+    }
+  </style>
+
+  <g clip-path="url(#panelClip)">
+    <rect width="1200" height="410" rx="18" fill="url(#surface)" />
+    <rect width="1200" height="410" fill="url(#paper)" />
+    <path d="M594 28V318M32 326H1168" fill="none" stroke="#bbc1bc" />
+    <path d="M16 82H42M16 124H28M1172 82H1184M1158 124H1184" fill="none" stroke="#909b98" stroke-width="1" />
+    <g class="orbit" fill="none" stroke="#bbc1bc" stroke-width="1">
+      <ellipse cx="934" cy="208" rx="224" ry="108" />
+      <ellipse cx="934" cy="208" rx="176" ry="78" stroke-dasharray="2 8" />
+      <path d="M710 208H1158M934 100V316" stroke-opacity="0.54" />
+    </g>
+  </g>
+
+  <rect x="0.75" y="0.75" width="1198.5" height="408.5" rx="17.25" fill="none" stroke="#909b98" stroke-opacity="0.72" stroke-width="1.5" />
+
+  <g transform="translate(56 39)">
+    <!-- Lucide Activity 图标 -->
+    <g transform="translate(0 -4) scale(0.7)" fill="none" stroke="#155367" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+    </g>
+    <text class="label" x="30" y="8">YANG HUIXIANG / LIVE FIELD NOTE</text>
+  </g>
+  <text class="micro" x="1144" y="47" text-anchor="end">UPDATED 05 AUG 2026 14:29 CST</text>
+
+  <text class="headline" x="56" y="121">
+    <tspan>Work</tspan><tspan class="headline-accent"> / </tspan><tspan>in motion</tspan>
+  </text>
+  <text class="label" x="58" y="151">PUBLIC ENGINEERING ACTIVITY, RENDERED AS A DAILY FIELD NOTE</text>
+
+  <text class="label" x="56" y="211">TODAY&apos;S OPERATING PRINCIPLE</text>
+  <text class="principle" x="56" y="252"><tspan x="56" dy="0">Build for the next handoff.</tspan></text>
+  <line x1="56" y1="302" x2="168" y2="302" stroke="#c45f43" stroke-width="2" />
+  <circle cx="181" cy="302" r="3" fill="#155367" />
+  <text class="mode" x="197" y="306">ACTIVE SIGNAL</text>
+
+  <g>
+    <text class="label" x="624" y="126">FOURTEEN-DAY FIELD TRACE</text>
+    <text class="micro" x="1144" y="126" text-anchor="end">EVENT DENSITY / UTC</text>
+    <path d="M624 292 L624.0 292.0 L664.0 292.0 L704.0 292.0 L744.0 292.0 L784.0 292.0 L824.0 292.0 L864.0 292.0 L904.0 292.0 L944.0 292.0 L984.0 292.0 L1024.0 292.0 L1064.0 292.0 L1104.0 176.0 L1144.0 228.2 L1144 292 Z" fill="url(#signalArea)" />
+    <line class="day-rule" x1="624.0" y1="158" x2="624.0" y2="292" opacity="0.2" />
+          <circle class="signal-point point-0" cx="624.0" cy="292.0" r="2.2" />
+          <line class="day-rule" x1="664.0" y1="158" x2="664.0" y2="292" opacity="0.2" />
+          <circle class="signal-point point-1" cx="664.0" cy="292.0" r="2.2" />
+          <line class="day-rule" x1="704.0" y1="158" x2="704.0" y2="292" opacity="0.2" />
+          <circle class="signal-point point-2" cx="704.0" cy="292.0" r="2.2" />
+          <line class="day-rule" x1="744.0" y1="158" x2="744.0" y2="292" opacity="0.2" />
+          <circle class="signal-point point-3" cx="744.0" cy="292.0" r="2.2" />
+          <line class="day-rule" x1="784.0" y1="158" x2="784.0" y2="292" opacity="0.2" />
+          <circle class="signal-point point-4" cx="784.0" cy="292.0" r="2.2" />
+          <line class="day-rule" x1="824.0" y1="158" x2="824.0" y2="292" opacity="0.2" />
+          <circle class="signal-point point-5" cx="824.0" cy="292.0" r="2.2" />
+          <line class="day-rule" x1="864.0" y1="158" x2="864.0" y2="292" opacity="0.2" />
+          <circle class="signal-point point-6" cx="864.0" cy="292.0" r="2.2" />
+          <line class="day-rule" x1="904.0" y1="158" x2="904.0" y2="292" opacity="0.2" />
+          <circle class="signal-point point-7" cx="904.0" cy="292.0" r="2.2" />
+          <line class="day-rule" x1="944.0" y1="158" x2="944.0" y2="292" opacity="0.2" />
+          <circle class="signal-point point-8" cx="944.0" cy="292.0" r="2.2" />
+          <line class="day-rule" x1="984.0" y1="158" x2="984.0" y2="292" opacity="0.2" />
+          <circle class="signal-point point-9" cx="984.0" cy="292.0" r="2.2" />
+          <line class="day-rule" x1="1024.0" y1="158" x2="1024.0" y2="292" opacity="0.2" />
+          <circle class="signal-point point-10" cx="1024.0" cy="292.0" r="2.2" />
+          <line class="day-rule" x1="1064.0" y1="158" x2="1064.0" y2="292" opacity="0.2" />
+          <circle class="signal-point point-11" cx="1064.0" cy="292.0" r="2.2" />
+          <line class="day-rule" x1="1104.0" y1="158" x2="1104.0" y2="292" opacity="0.44" />
+          <circle class="signal-point point-12" cx="1104.0" cy="176.0" r="4.4" />
+          <line class="day-rule" x1="1144.0" y1="158" x2="1144.0" y2="292" opacity="0.44" />
+          <circle class="signal-point point-13" cx="1144.0" cy="228.2" r="4.4" />
+    <path class="signal-line" d="M624.0 292.0 L664.0 292.0 L704.0 292.0 L744.0 292.0 L784.0 292.0 L824.0 292.0 L864.0 292.0 L904.0 292.0 L944.0 292.0 L984.0 292.0 L1024.0 292.0 L1064.0 292.0 L1104.0 176.0 L1144.0 228.2" />
+    <circle class="endpoint-ring" cx="1144.0" cy="228.2" r="12" fill="none" stroke="#c45f43" stroke-width="1" />
+    <circle cx="1144.0" cy="228.2" r="3.4" fill="#c45f43" />
+    <text class="micro" x="624" y="311">T−13 DAYS</text>
+    <text class="micro" x="1144" y="311" text-anchor="end">PRESENT</text>
+  </g>
+
+  <g transform="translate(56 359)">
+          <text class="metric-index" x="0" y="0">01</text>
+          <text class="metric-value" x="38" y="0">29</text>
+          <text class="metric-label" x="38" y="22">PUSH EVENTS / 90D</text>
+        </g>
+        <g transform="translate(340 359)">
+          <text class="metric-index" x="0" y="0">02</text>
+          <text class="metric-value" x="38" y="0">2</text>
+          <text class="metric-label" x="38" y="22">ACTIVE DAYS / 90D</text>
+        </g>
+        <g transform="translate(624 359)">
+          <text class="metric-index" x="0" y="0">03</text>
+          <text class="metric-value" x="38" y="0">2</text>
+          <text class="metric-label" x="38" y="22">REPOS TOUCHED / 90D</text>
+        </g>
+        <g transform="translate(908 359)">
+          <text class="metric-index" x="0" y="0">04</text>
+          <text class="metric-value" x="38" y="0">0</text>
+          <text class="metric-label" x="38" y="22">PULL REQUESTS / 90D</text>
+        </g>
+  <text class="micro" x="1144" y="392" text-anchor="end">OBSERVE / TRACE / SHIP</text>
+</svg>
