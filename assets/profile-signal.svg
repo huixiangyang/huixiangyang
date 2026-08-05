@@ -78,7 +78,7 @@
   <g>
     <text class="section-label" x="34" y="112">PUBLIC ACTIVITY ARRAY</text>
     <g transform="translate(52 158)">
-          <text class="metric-value" x="0" y="0">26</text>
+          <text class="metric-value" x="0" y="0">27</text>
           <text class="metric-label" x="0" y="24">PUSH EVENTS / 90D</text>
         </g>
         <g transform="translate(222 158)">
@@ -125,9 +125,9 @@
           <circle class="signal-point point-11" cx="805.1" cy="254.0" r="2" />
           <line class="signal-bar" x1="838.5" y1="254" x2="838.5" y2="166.0" opacity="0.34" />
           <circle class="signal-point point-12" cx="838.5" cy="166.0" r="3.4" />
-          <line class="signal-bar" x1="872.0" y1="254" x2="872.0" y2="218.8" opacity="0.34" />
-          <circle class="signal-point point-13" cx="872.0" cy="218.8" r="3.4" />
-    <polyline class="signal-line" points="437.0,254.0 470.5,254.0 503.9,254.0 537.4,254.0 570.8,254.0 604.3,254.0 637.8,254.0 671.2,254.0 704.7,254.0 738.2,254.0 771.6,254.0 805.1,254.0 838.5,166.0 872.0,218.8" />
+          <line class="signal-bar" x1="872.0" y1="254" x2="872.0" y2="214.4" opacity="0.34" />
+          <circle class="signal-point point-13" cx="872.0" cy="214.4" r="3.4" />
+    <polyline class="signal-line" points="437.0,254.0 470.5,254.0 503.9,254.0 537.4,254.0 570.8,254.0 604.3,254.0 637.8,254.0 671.2,254.0 704.7,254.0 738.2,254.0 771.6,254.0 805.1,254.0 838.5,166.0 872.0,214.4" />
     <text class="micro" x="437" y="281">T−13D</text>
     <text class="micro" x="872" y="281" text-anchor="end">NOW</text>
     <text class="section-label" x="429" y="316">TODAY&apos;S OPERATING PRINCIPLE</text>
