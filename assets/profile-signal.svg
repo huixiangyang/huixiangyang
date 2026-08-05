@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title description">
+  <title id="title">Yang Huixiang engineering signal observatory</title>
+  <desc id="description">A live visual summary of recent public GitHub activity, generated daily.</desc>
+
+  <defs>
+    <linearGradient id="panelGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d171a" />
+      <stop offset="0.54" stop-color="#081113" />
+      <stop offset="1" stop-color="#071013" />
+    </linearGradient>
+    <linearGradient id="signalGradient" x1="437" y1="0" x2="872" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#65f6d2" />
+      <stop offset="0.52" stop-color="#b7f976" />
+      <stop offset="1" stop-color="#ffb45b" />
+    </linearGradient>
+    <radialGradient id="coreGlow">
+      <stop offset="0" stop-color="#b7f976" stop-opacity="0.24" />
+      <stop offset="0.45" stop-color="#65f6d2" stop-opacity="0.08" />
+      <stop offset="1" stop-color="#65f6d2" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#9fd8ca" stroke-opacity="0.045" stroke-width="1" />
+    </pattern>
+    <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+    <clipPath id="panelClip"><rect width="1200" height="360" rx="22" /></clipPath>
+  </defs>
+
+  <style>
+    .display { font-family: "Arial Narrow", "Roboto Condensed", sans-serif; font-weight: 700; letter-spacing: 0.14em; }
+    .mono { font-family: "SFMono-Regular", "Cascadia Code", "Liberation Mono", monospace; }
+    .eyebrow { fill: #84a49c; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 10px; letter-spacing: 0.21em; }
+    .title { fill: #e7f4ef; font-family: "Arial Narrow", "Roboto Condensed", sans-serif; font-size: 27px; font-weight: 700; letter-spacing: 0.12em; }
+    .metric-value { fill: #e7f4ef; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 26px; font-weight: 700; }
+    .metric-label { fill: #77958e; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 8px; letter-spacing: 0.14em; }
+    .section-label { fill: #8ba9a1; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 9px; letter-spacing: 0.19em; }
+    .thought { fill: #d6e8e2; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.11em; }
+    .status { fill: #b7f976; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; }
+    .micro { fill: #66847d; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 8px; letter-spacing: 0.12em; }
+    .signal-bar { stroke: #65f6d2; stroke-width: 1; }
+    .signal-point { fill: #0a1416; stroke: #83e8ce; stroke-width: 1.4; }
+    .signal-line { fill: none; stroke: url(#signalGradient); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; filter: url(#softGlow); stroke-dasharray: 8 8; animation: flow 7s linear infinite; }
+    .scan-line { fill: url(#signalGradient); opacity: 0.12; animation: scan 7s ease-in-out infinite; }
+    .core-pulse { transform-origin: 1037px 184px; animation: breathe 3.8s ease-in-out infinite; }
+    .status-dot { animation: blink 2.2s steps(2, end) infinite; }
+    @keyframes flow { to { stroke-dashoffset: -64; } }
+    @keyframes scan { 0%, 12% { transform: translateY(-24px); } 82%, 100% { transform: translateY(410px); } }
+    @keyframes breathe { 0%, 100% { transform: scale(0.92); opacity: 0.62; } 50% { transform: scale(1.06); opacity: 1; } }
+    @keyframes blink { 0%, 58% { opacity: 1; } 59%, 100% { opacity: 0.3; } }
+    @media (prefers-reduced-motion: reduce) {
+      .signal-line, .scan-line, .core-pulse, .status-dot { animation: none; }
+    }
+  </style>
+
+  <g clip-path="url(#panelClip)">
+    <rect width="1200" height="360" rx="22" fill="url(#panelGlow)" />
+    <rect width="1200" height="360" fill="url(#grid)" />
+    <rect class="scan-line" x="0" y="-20" width="1200" height="2" />
+    <circle cx="1037" cy="184" r="190" fill="url(#coreGlow)" />
+    <path d="M0 82H1200M397 82V360M918 82V360" stroke="#9fd8ca" stroke-opacity="0.12" />
+  </g>
+
+  <rect x="0.75" y="0.75" width="1198.5" height="358.5" rx="21.25" fill="none" stroke="#98c7bb" stroke-opacity="0.22" stroke-width="1.5" />
+
+  <g transform="translate(34 28)">
+    <!-- Lucide Activity 图标 -->
+    <g transform="translate(0 0) scale(0.72)" fill="none" stroke="#65f6d2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+    </g>
+    <text class="eyebrow" x="29" y="11">YHX / SIGNAL OBSERVATORY</text>
+  </g>
+  <text class="title" x="34" y="62">ENGINEERING TELEMETRY</text>
+  <text class="micro" x="1162" y="43" text-anchor="end">SYNC 2026-08-05 14:15 CST</text>
+
+  <g>
+    <text class="section-label" x="34" y="112">PUBLIC ACTIVITY ARRAY</text>
+    
+        <g transform="translate(52 158)">
+          <text class="metric-value" x="0" y="0">26</text>
+          <text class="metric-label" x="0" y="24">PUSH EVENTS / 90D</text>
+        </g>
+        <g transform="translate(222 158)">
+          <text class="metric-value" x="0" y="0">2</text>
+          <text class="metric-label" x="0" y="24">ACTIVE DAYS / 90D</text>
+        </g>
+        <g transform="translate(52 246)">
+          <text class="metric-value" x="0" y="0">2</text>
+          <text class="metric-label" x="0" y="24">REPOS TOUCHED / 90D</text>
+        </g>
+        <g transform="translate(222 246)">
+          <text class="metric-value" x="0" y="0">0</text>
+          <text class="metric-label" x="0" y="24">PULL REQUESTS / 90D</text>
+        </g>
+  </g>
+
+  <g>
+    <text class="section-label" x="429" y="112">FOURTEEN DAY SIGNAL</text>
+    <line x1="437" y1="254" x2="872" y2="254" stroke="#9fd8ca" stroke-opacity="0.17" />
+    <line x1="437" y1="210" x2="872" y2="210" stroke="#9fd8ca" stroke-opacity="0.08" stroke-dasharray="3 7" />
+    
+          <line class="signal-bar" x1="437.0" y1="254" x2="437.0" y2="254.0" opacity="0.1" />
+          <circle class="signal-point point-0" cx="437.0" cy="254.0" r="2" />
+          <line class="signal-bar" x1="470.5" y1="254" x2="470.5" y2="254.0" opacity="0.1" />
+          <circle class="signal-point point-1" cx="470.5" cy="254.0" r="2" />
+          <line class="signal-bar" x1="503.9" y1="254" x2="503.9" y2="254.0" opacity="0.1" />
+          <circle class="signal-point point-2" cx="503.9" cy="254.0" r="2" />
+          <line class="signal-bar" x1="537.4" y1="254" x2="537.4" y2="254.0" opacity="0.1" />
+          <circle class="signal-point point-3" cx="537.4" cy="254.0" r="2" />
+          <line class="signal-bar" x1="570.8" y1="254" x2="570.8" y2="254.0" opacity="0.1" />
+          <circle class="signal-point point-4" cx="570.8" cy="254.0" r="2" />
+          <line class="signal-bar" x1="604.3" y1="254" x2="604.3" y2="254.0" opacity="0.1" />
+          <circle class="signal-point point-5" cx="604.3" cy="254.0" r="2" />
+          <line class="signal-bar" x1="637.8" y1="254" x2="637.8" y2="254.0" opacity="0.1" />
+          <circle class="signal-point point-6" cx="637.8" cy="254.0" r="2" />
+          <line class="signal-bar" x1="671.2" y1="254" x2="671.2" y2="254.0" opacity="0.1" />
+          <circle class="signal-point point-7" cx="671.2" cy="254.0" r="2" />
+          <line class="signal-bar" x1="704.7" y1="254" x2="704.7" y2="254.0" opacity="0.1" />
+          <circle class="signal-point point-8" cx="704.7" cy="254.0" r="2" />
+          <line class="signal-bar" x1="738.2" y1="254" x2="738.2" y2="254.0" opacity="0.1" />
+          <circle class="signal-point point-9" cx="738.2" cy="254.0" r="2" />
+          <line class="signal-bar" x1="771.6" y1="254" x2="771.6" y2="254.0" opacity="0.1" />
+          <circle class="signal-point point-10" cx="771.6" cy="254.0" r="2" />
+          <line class="signal-bar" x1="805.1" y1="254" x2="805.1" y2="254.0" opacity="0.1" />
+          <circle class="signal-point point-11" cx="805.1" cy="254.0" r="2" />
+          <line class="signal-bar" x1="838.5" y1="254" x2="838.5" y2="166.0" opacity="0.34" />
+          <circle class="signal-point point-12" cx="838.5" cy="166.0" r="3.4" />
+          <line class="signal-bar" x1="872.0" y1="254" x2="872.0" y2="218.8" opacity="0.34" />
+          <circle class="signal-point point-13" cx="872.0" cy="218.8" r="3.4" />
+    <polyline class="signal-line" points="437.0,254.0 470.5,254.0 503.9,254.0 537.4,254.0 570.8,254.0 604.3,254.0 637.8,254.0 671.2,254.0 704.7,254.0 738.2,254.0 771.6,254.0 805.1,254.0 838.5,166.0 872.0,218.8" />
+    <text class="micro" x="437" y="281">T−13D</text>
+    <text class="micro" x="872" y="281" text-anchor="end">NOW</text>
+    <text class="section-label" x="429" y="316">TODAY&apos;S OPERATING PRINCIPLE</text>
+    <text class="thought" x="872" y="318" text-anchor="end">BUILD FOR THE NEXT HANDOFF</text>
+  </g>
+
+  <g>
+    <circle class="core-pulse" cx="1037" cy="184" r="112" fill="none" stroke="#65f6d2" stroke-opacity="0.08" />
+    <circle cx="1037" cy="184" r="78" fill="#0a1517" fill-opacity="0.58" stroke="#8bc8b8" stroke-opacity="0.2" />
+    <circle cx="1037" cy="184" r="59" fill="none" stroke="#b7f976" stroke-opacity="0.18" stroke-dasharray="2 7" />
+    <circle class="status-dot" cx="1037" cy="153" r="5" fill="#b7f976" filter="url(#softGlow)" />
+    <text class="status" x="1037" y="188" text-anchor="middle">ACTIVE SIGNAL</text>
+    <text class="micro" x="1037" y="208" text-anchor="middle">OBSERVE / TRACE / SHIP</text>
+    <path d="M1037 77v20M1037 271v20M930 184h20M1124 184h20" stroke="#7eb7a9" stroke-opacity="0.22" />
+    <text class="micro" x="1037" y="325" text-anchor="middle">AUTO-GENERATED FROM PUBLIC EVENTS</text>
+  </g>
+</svg>

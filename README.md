@@ -14,6 +14,28 @@ I turn ambiguous product ideas into working software, then follow the real logs,
 
 [Personal website](https://yanghuixiang.cn) | [GitHub repositories](https://github.com/huixiangyang?tab=repositories)
 
+## Live engineering signal
+
+<a href="https://github.com/huixiangyang/huixiangyang/actions/workflows/profile-signal.yml">
+  <img src="./assets/profile-signal.svg" alt="Live engineering signal generated from recent public GitHub activity" width="100%">
+</a>
+
+<sub>Generated daily from public GitHub events by this profile repository.</sub>
+
+<details>
+<summary><strong>Open the observatory console</strong></summary>
+
+```text
+operator@github:~$ ./inspect --human
+
+identity    software engineer
+bias        working software over convincing slides
+protocol    observe -> trace -> fix -> verify
+signal      calm interface / rigorous system
+```
+
+</details>
+
 ## Current focus
 
 - Agent orchestration, retrieval systems, evaluation, and observable AI workflows
