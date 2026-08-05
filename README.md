@@ -24,7 +24,7 @@ I turn ambiguous product ideas into working software, then follow the real logs,
   </picture>
 </a>
 
-<sub>Generated daily from public GitHub events by this profile repository.</sub>
+<sub>Generated daily from public GitHub signals by <a href="https://github.com/huixiangyang/source-atlas">Source Atlas</a>.</sub>
 
 ## Annual contribution terrain
 
@@ -36,7 +36,7 @@ I turn ambiguous product ideas into working software, then follow the real logs,
   </picture>
 </a>
 
-<sub>365 days of public contributions, shaped into terrain. The source seal changes with the latest public commit.</sub>
+<sub>365 days of public contributions, shaped by Source Atlas. The source seal changes with the latest public commit.</sub>
 
 <details>
 <summary><strong>Open the Black Box</strong></summary>

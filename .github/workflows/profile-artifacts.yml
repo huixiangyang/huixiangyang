@@ -22,16 +22,18 @@ jobs:
       - name: Checkout profile repository
         uses: actions/checkout@v7
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v7
+      - name: Generate profile artifacts with Source Atlas
+        uses: huixiangyang/source-atlas@v1
         with:
-          node-version: 22
-
-      - name: Generate profile artifacts
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PROFILE_USER: ${{ github.repository_owner }}
-        run: node scripts/generate-profile.mjs
+          username: ${{ github.repository_owner }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          display-name: Yang Huixiang
+          initials: YH
+          modules: field-note,terrain,black-box
+          theme: both
+          output-dir: assets
+          timezone: Asia/Shanghai
+          timezone-label: CST
 
       - name: Commit refreshed artifacts
         run: |
