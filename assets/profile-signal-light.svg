@@ -38,7 +38,7 @@
     .signal-point { fill: #efede6; stroke: #155367; stroke-width: 1.4; }
     .signal-line { fill: none; stroke: url(#signalStroke); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 3 7; animation: drift 18s linear infinite; }
     .orbit { transform-origin: 934px 208px; animation: orbit 36s linear infinite; }
-    .endpoint-ring { transform-origin: 1144.0px 228.2px; animation: pulse 3.4s ease-in-out infinite; }
+    .endpoint-ring { transform-origin: 1144.0px 210.8px; animation: pulse 3.4s ease-in-out infinite; }
     @keyframes drift { to { stroke-dashoffset: -80; } }
     @keyframes orbit { to { transform: rotate(360deg); } }
     @keyframes pulse { 0%, 100% { transform: scale(0.74); opacity: 0.15; } 50% { transform: scale(1.35); opacity: 0.5; } }
@@ -68,7 +68,7 @@
     </g>
     <text class="label" x="30" y="8">YANG HUIXIANG / LIVE FIELD NOTE</text>
   </g>
-  <text class="micro" x="1144" y="47" text-anchor="end">UPDATED 05 AUG 2026 14:31 CST</text>
+  <text class="micro" x="1144" y="47" text-anchor="end">UPDATED 05 AUG 2026 15:19 CST</text>
 
   <text class="headline" x="56" y="121">
     <tspan>Work</tspan><tspan class="headline-accent"> / </tspan><tspan>in motion</tspan>
@@ -84,7 +84,7 @@
   <g>
     <text class="label" x="624" y="126">FOURTEEN-DAY FIELD TRACE</text>
     <text class="micro" x="1144" y="126" text-anchor="end">EVENT DENSITY / UTC</text>
-    <path d="M624 292 L624.0 292.0 L664.0 292.0 L704.0 292.0 L744.0 292.0 L784.0 292.0 L824.0 292.0 L864.0 292.0 L904.0 292.0 L944.0 292.0 L984.0 292.0 L1024.0 292.0 L1064.0 292.0 L1104.0 176.0 L1144.0 228.2 L1144 292 Z" fill="url(#signalArea)" />
+    <path d="M624 292 L624.0 292.0 L664.0 292.0 L704.0 292.0 L744.0 292.0 L784.0 292.0 L824.0 292.0 L864.0 292.0 L904.0 292.0 L944.0 292.0 L984.0 292.0 L1024.0 292.0 L1064.0 292.0 L1104.0 176.0 L1144.0 210.8 L1144 292 Z" fill="url(#signalArea)" />
     <line class="day-rule" x1="624.0" y1="158" x2="624.0" y2="292" opacity="0.2" />
           <circle class="signal-point point-0" cx="624.0" cy="292.0" r="2.2" />
           <line class="day-rule" x1="664.0" y1="158" x2="664.0" y2="292" opacity="0.2" />
@@ -112,17 +112,17 @@
           <line class="day-rule" x1="1104.0" y1="158" x2="1104.0" y2="292" opacity="0.44" />
           <circle class="signal-point point-12" cx="1104.0" cy="176.0" r="4.4" />
           <line class="day-rule" x1="1144.0" y1="158" x2="1144.0" y2="292" opacity="0.44" />
-          <circle class="signal-point point-13" cx="1144.0" cy="228.2" r="4.4" />
-    <path class="signal-line" d="M624.0 292.0 L664.0 292.0 L704.0 292.0 L744.0 292.0 L784.0 292.0 L824.0 292.0 L864.0 292.0 L904.0 292.0 L944.0 292.0 L984.0 292.0 L1024.0 292.0 L1064.0 292.0 L1104.0 176.0 L1144.0 228.2" />
-    <circle class="endpoint-ring" cx="1144.0" cy="228.2" r="12" fill="none" stroke="#c45f43" stroke-width="1" />
-    <circle cx="1144.0" cy="228.2" r="3.4" fill="#c45f43" />
+          <circle class="signal-point point-13" cx="1144.0" cy="210.8" r="4.4" />
+    <path class="signal-line" d="M624.0 292.0 L664.0 292.0 L704.0 292.0 L744.0 292.0 L784.0 292.0 L824.0 292.0 L864.0 292.0 L904.0 292.0 L944.0 292.0 L984.0 292.0 L1024.0 292.0 L1064.0 292.0 L1104.0 176.0 L1144.0 210.8" />
+    <circle class="endpoint-ring" cx="1144.0" cy="210.8" r="12" fill="none" stroke="#c45f43" stroke-width="1" />
+    <circle cx="1144.0" cy="210.8" r="3.4" fill="#c45f43" />
     <text class="micro" x="624" y="311">T−13 DAYS</text>
     <text class="micro" x="1144" y="311" text-anchor="end">PRESENT</text>
   </g>
 
   <g transform="translate(56 359)">
           <text class="metric-index" x="0" y="0">01</text>
-          <text class="metric-value" x="38" y="0">29</text>
+          <text class="metric-value" x="38" y="0">32</text>
           <text class="metric-label" x="38" y="22">PUSH EVENTS / 90D</text>
         </g>
         <g transform="translate(340 359)">

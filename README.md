@@ -16,7 +16,7 @@ I turn ambiguous product ideas into working software, then follow the real logs,
 
 ## Live field note
 
-<a href="https://github.com/huixiangyang/huixiangyang/actions/workflows/profile-signal.yml">
+<a href="https://github.com/huixiangyang/huixiangyang/actions/workflows/profile-artifacts.yml">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./assets/profile-signal-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="./assets/profile-signal-light.svg">
@@ -26,17 +26,28 @@ I turn ambiguous product ideas into working software, then follow the real logs,
 
 <sub>Generated daily from public GitHub events by this profile repository.</sub>
 
+## Annual contribution terrain
+
+<a href="https://github.com/huixiangyang/huixiangyang/actions/workflows/profile-artifacts.yml">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/contribution-terrain-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/contribution-terrain-light.svg">
+    <img src="./assets/contribution-terrain-light.svg" alt="Annual contribution terrain with a source fingerprint generated from the latest public commit" width="100%">
+  </picture>
+</a>
+
+<sub>365 days of public contributions, shaped into terrain. The source seal changes with the latest public commit.</sub>
+
 <details>
-<summary><strong>Read the operating notes</strong></summary>
+<summary><strong>Open the Black Box</strong></summary>
 
-```text
-operator@github:~$ ./inspect --human
+<br>
 
-identity    software engineer
-bias        working software over convincing slides
-protocol    observe -> trace -> fix -> verify
-signal      calm interface / rigorous system
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/black-box-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/black-box-light.svg">
+  <img src="./assets/black-box-light.svg" alt="Hidden Black Box readout with the latest public source signal" width="100%">
+</picture>
 
 </details>
 

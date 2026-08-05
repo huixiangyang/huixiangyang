@@ -1,4 +1,4 @@
-name: Refresh profile signal
+name: Refresh profile artifacts
 
 on:
   workflow_dispatch:
@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: profile-signal
+  group: profile-artifacts
   cancel-in-progress: true
 
 jobs:
@@ -27,21 +27,21 @@ jobs:
         with:
           node-version: 22
 
-      - name: Generate engineering signal
+      - name: Generate profile artifacts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PROFILE_USER: ${{ github.repository_owner }}
-        run: node scripts/generate-profile-signal.mjs
+        run: node scripts/generate-profile.mjs
 
-      - name: Commit refreshed signal
+      - name: Commit refreshed artifacts
         run: |
-          if git diff --quiet -- assets/profile-signal-light.svg assets/profile-signal-dark.svg; then
-            echo "Profile signal is already current."
+          if git diff --quiet -- assets/profile-signal-*.svg assets/contribution-terrain-*.svg assets/black-box-*.svg; then
+            echo "Profile artifacts are already current."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/profile-signal-light.svg assets/profile-signal-dark.svg
-          git commit -m "chore: refresh profile signal"
+          git add assets/profile-signal-*.svg assets/contribution-terrain-*.svg assets/black-box-*.svg
+          git commit -m "chore: refresh profile artifacts"
           git push

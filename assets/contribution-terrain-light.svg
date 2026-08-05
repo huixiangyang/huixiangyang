@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="350" viewBox="0 0 1200 350" role="img" aria-labelledby="title description">
+  <title id="title">Annual contribution terrain and source fingerprint</title>
+  <desc id="description">A generative architectural landscape made from 365 days of public contributions, paired with a seal derived from the latest public commit.</desc>
+  <defs>
+    <linearGradient id="surface" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#efede6" />
+      <stop offset="0.7" stop-color="#efede6" />
+      <stop offset="1" stop-color="#e7e3da" />
+    </linearGradient>
+    <linearGradient id="terrainFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#155367" stop-opacity="0.3" />
+      <stop offset="0.66" stop-color="#76a5af" stop-opacity="0.08" />
+      <stop offset="1" stop-color="#155367" stop-opacity="0" />
+    </linearGradient>
+    <pattern id="paper" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="0.6" fill="#171b1c" opacity="0.04" />
+    </pattern>
+    <clipPath id="panelClip"><rect width="1200" height="350" rx="18" /></clipPath>
+  </defs>
+  <style>
+    .label { fill: #566261; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 9px; letter-spacing: 0.17em; }
+    .micro { fill: #7c8683; font-family: "SFMono-Regular", "Cascadia Code", monospace; font-size: 8px; letter-spacing: 0.12em; }
+    .headline { fill: #171b1c; font-family: Georgia, "Times New Roman", serif; font-size: 34px; letter-spacing: -0.025em; }
+    .count { fill: #171b1c; font-family: Georgia, "Times New Roman", serif; font-size: 26px; }
+    .terrain-contour { fill: none; stroke: #76a5af; stroke-width: 1; }
+    .terrain-column { stroke: #155367; stroke-width: 1; }
+    .terrain-ridge { fill: none; stroke: #c45f43; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .seal-orbit { transform-origin: 1022px 194px; animation: seal-orbit 48s linear infinite; }
+    .seal-pulse { transform-origin: 1022px 194px; animation: seal-pulse 5s ease-in-out infinite; }
+    @keyframes seal-orbit { to { transform: rotate(360deg); } }
+    @keyframes seal-pulse { 0%, 100% { opacity: 0.4; transform: scale(0.98); } 50% { opacity: 0.8; transform: scale(1.03); } }
+    @media (prefers-reduced-motion: reduce) { .seal-orbit, .seal-pulse { animation: none; } }
+  </style>
+
+  <g clip-path="url(#panelClip)">
+    <rect width="1200" height="350" rx="18" fill="url(#surface)" />
+    <rect width="1200" height="350" fill="url(#paper)" />
+    <path d="M900 28V322M32 130H1168" fill="none" stroke="#bbc1bc" />
+  </g>
+  <rect x="0.75" y="0.75" width="1198.5" height="348.5" rx="17.25" fill="none" stroke="#909b98" stroke-opacity="0.72" stroke-width="1.5" />
+
+  <text class="label" x="56" y="42">365-DAY CONTRIBUTION TERRAIN</text>
+  <text class="headline" x="56" y="88">A year, shaped by work.</text>
+  <text class="micro" x="56" y="112">22 VISIBLE CONTRIBUTIONS / 14 ACTIVE DAYS / PEAK 5</text>
+  <text class="micro" x="852" y="42" text-anchor="end">THROUGH 05 AUG 2026</text>
+
+  <path d="M56 282 L56.0 282.0 L71.3 282.0 L86.6 238.0 L101.9 282.0 L117.2 282.0 L132.5 282.0 L147.8 282.0 L163.2 282.0 L178.5 282.0 L193.8 282.0 L209.1 219.8 L224.4 282.0 L239.7 282.0 L255.0 238.0 L270.3 238.0 L285.6 282.0 L300.9 282.0 L316.2 282.0 L331.5 282.0 L346.8 219.8 L362.2 282.0 L377.5 282.0 L392.8 282.0 L408.1 282.0 L423.4 282.0 L438.7 282.0 L454.0 282.0 L469.3 282.0 L484.6 282.0 L499.9 282.0 L515.2 282.0 L530.5 282.0 L545.8 282.0 L561.2 150.0 L576.5 219.8 L591.8 238.0 L607.1 282.0 L622.4 282.0 L637.7 282.0 L653.0 282.0 L668.3 282.0 L683.6 282.0 L698.9 282.0 L714.2 282.0 L729.5 282.0 L744.8 282.0 L760.2 238.0 L775.5 282.0 L790.8 282.0 L806.1 282.0 L821.4 282.0 L836.7 282.0 L852.0 219.8 L852 282 Z" fill="url(#terrainFill)" />
+  <path class="terrain-contour contour-4" d="M56.0 314.0 L71.3 314.0 L86.6 270.0 L101.9 314.0 L117.2 314.0 L132.5 314.0 L147.8 314.0 L163.2 314.0 L178.5 314.0 L193.8 314.0 L209.1 251.8 L224.4 314.0 L239.7 314.0 L255.0 270.0 L270.3 270.0 L285.6 314.0 L300.9 314.0 L316.2 314.0 L331.5 314.0 L346.8 251.8 L362.2 314.0 L377.5 314.0 L392.8 314.0 L408.1 314.0 L423.4 314.0 L438.7 314.0 L454.0 314.0 L469.3 314.0 L484.6 314.0 L499.9 314.0 L515.2 314.0 L530.5 314.0 L545.8 314.0 L561.2 182.0 L576.5 251.8 L591.8 270.0 L607.1 314.0 L622.4 314.0 L637.7 314.0 L653.0 314.0 L668.3 314.0 L683.6 314.0 L698.9 314.0 L714.2 314.0 L729.5 314.0 L744.8 314.0 L760.2 270.0 L775.5 314.0 L790.8 314.0 L806.1 314.0 L821.4 314.0 L836.7 314.0 L852.0 251.8" opacity="0.48" /><path class="terrain-contour contour-3" d="M56.0 306.0 L71.3 306.0 L86.6 262.0 L101.9 306.0 L117.2 306.0 L132.5 306.0 L147.8 306.0 L163.2 306.0 L178.5 306.0 L193.8 306.0 L209.1 243.8 L224.4 306.0 L239.7 306.0 L255.0 262.0 L270.3 262.0 L285.6 306.0 L300.9 306.0 L316.2 306.0 L331.5 306.0 L346.8 243.8 L362.2 306.0 L377.5 306.0 L392.8 306.0 L408.1 306.0 L423.4 306.0 L438.7 306.0 L454.0 306.0 L469.3 306.0 L484.6 306.0 L499.9 306.0 L515.2 306.0 L530.5 306.0 L545.8 306.0 L561.2 174.0 L576.5 243.8 L591.8 262.0 L607.1 306.0 L622.4 306.0 L637.7 306.0 L653.0 306.0 L668.3 306.0 L683.6 306.0 L698.9 306.0 L714.2 306.0 L729.5 306.0 L744.8 306.0 L760.2 262.0 L775.5 306.0 L790.8 306.0 L806.1 306.0 L821.4 306.0 L836.7 306.0 L852.0 243.8" opacity="0.40" /><path class="terrain-contour contour-2" d="M56.0 298.0 L71.3 298.0 L86.6 254.0 L101.9 298.0 L117.2 298.0 L132.5 298.0 L147.8 298.0 L163.2 298.0 L178.5 298.0 L193.8 298.0 L209.1 235.8 L224.4 298.0 L239.7 298.0 L255.0 254.0 L270.3 254.0 L285.6 298.0 L300.9 298.0 L316.2 298.0 L331.5 298.0 L346.8 235.8 L362.2 298.0 L377.5 298.0 L392.8 298.0 L408.1 298.0 L423.4 298.0 L438.7 298.0 L454.0 298.0 L469.3 298.0 L484.6 298.0 L499.9 298.0 L515.2 298.0 L530.5 298.0 L545.8 298.0 L561.2 166.0 L576.5 235.8 L591.8 254.0 L607.1 298.0 L622.4 298.0 L637.7 298.0 L653.0 298.0 L668.3 298.0 L683.6 298.0 L698.9 298.0 L714.2 298.0 L729.5 298.0 L744.8 298.0 L760.2 254.0 L775.5 298.0 L790.8 298.0 L806.1 298.0 L821.4 298.0 L836.7 298.0 L852.0 235.8" opacity="0.32" /><path class="terrain-contour contour-1" d="M56.0 290.0 L71.3 290.0 L86.6 246.0 L101.9 290.0 L117.2 290.0 L132.5 290.0 L147.8 290.0 L163.2 290.0 L178.5 290.0 L193.8 290.0 L209.1 227.8 L224.4 290.0 L239.7 290.0 L255.0 246.0 L270.3 246.0 L285.6 290.0 L300.9 290.0 L316.2 290.0 L331.5 290.0 L346.8 227.8 L362.2 290.0 L377.5 290.0 L392.8 290.0 L408.1 290.0 L423.4 290.0 L438.7 290.0 L454.0 290.0 L469.3 290.0 L484.6 290.0 L499.9 290.0 L515.2 290.0 L530.5 290.0 L545.8 290.0 L561.2 158.0 L576.5 227.8 L591.8 246.0 L607.1 290.0 L622.4 290.0 L637.7 290.0 L653.0 290.0 L668.3 290.0 L683.6 290.0 L698.9 290.0 L714.2 290.0 L729.5 290.0 L744.8 290.0 L760.2 246.0 L775.5 290.0 L790.8 290.0 L806.1 290.0 L821.4 290.0 L836.7 290.0 L852.0 227.8" opacity="0.24" /><path class="terrain-contour contour-0" d="M56.0 282.0 L71.3 282.0 L86.6 238.0 L101.9 282.0 L117.2 282.0 L132.5 282.0 L147.8 282.0 L163.2 282.0 L178.5 282.0 L193.8 282.0 L209.1 219.8 L224.4 282.0 L239.7 282.0 L255.0 238.0 L270.3 238.0 L285.6 282.0 L300.9 282.0 L316.2 282.0 L331.5 282.0 L346.8 219.8 L362.2 282.0 L377.5 282.0 L392.8 282.0 L408.1 282.0 L423.4 282.0 L438.7 282.0 L454.0 282.0 L469.3 282.0 L484.6 282.0 L499.9 282.0 L515.2 282.0 L530.5 282.0 L545.8 282.0 L561.2 150.0 L576.5 219.8 L591.8 238.0 L607.1 282.0 L622.4 282.0 L637.7 282.0 L653.0 282.0 L668.3 282.0 L683.6 282.0 L698.9 282.0 L714.2 282.0 L729.5 282.0 L744.8 282.0 L760.2 238.0 L775.5 282.0 L790.8 282.0 L806.1 282.0 L821.4 282.0 L836.7 282.0 L852.0 219.8" opacity="0.16" />
+  <line class="terrain-column" x1="86.6" y1="238.0" x2="86.6" y2="282" opacity="0.32" /><line class="terrain-column" x1="209.1" y1="219.8" x2="209.1" y2="282" opacity="0.40" /><line class="terrain-column" x1="255.0" y1="238.0" x2="255.0" y2="282" opacity="0.32" /><line class="terrain-column" x1="270.3" y1="238.0" x2="270.3" y2="282" opacity="0.32" /><line class="terrain-column" x1="346.8" y1="219.8" x2="346.8" y2="282" opacity="0.40" /><line class="terrain-column" x1="561.2" y1="150.0" x2="561.2" y2="282" opacity="0.76" /><line class="terrain-column" x1="576.5" y1="219.8" x2="576.5" y2="282" opacity="0.40" /><line class="terrain-column" x1="591.8" y1="238.0" x2="591.8" y2="282" opacity="0.32" /><line class="terrain-column" x1="760.2" y1="238.0" x2="760.2" y2="282" opacity="0.32" /><line class="terrain-column" x1="852.0" y1="219.8" x2="852.0" y2="282" opacity="0.40" />
+  <path class="terrain-ridge" d="M56.0 282.0 L71.3 282.0 L86.6 238.0 L101.9 282.0 L117.2 282.0 L132.5 282.0 L147.8 282.0 L163.2 282.0 L178.5 282.0 L193.8 282.0 L209.1 219.8 L224.4 282.0 L239.7 282.0 L255.0 238.0 L270.3 238.0 L285.6 282.0 L300.9 282.0 L316.2 282.0 L331.5 282.0 L346.8 219.8 L362.2 282.0 L377.5 282.0 L392.8 282.0 L408.1 282.0 L423.4 282.0 L438.7 282.0 L454.0 282.0 L469.3 282.0 L484.6 282.0 L499.9 282.0 L515.2 282.0 L530.5 282.0 L545.8 282.0 L561.2 150.0 L576.5 219.8 L591.8 238.0 L607.1 282.0 L622.4 282.0 L637.7 282.0 L653.0 282.0 L668.3 282.0 L683.6 282.0 L698.9 282.0 L714.2 282.0 L729.5 282.0 L744.8 282.0 L760.2 238.0 L775.5 282.0 L790.8 282.0 L806.1 282.0 L821.4 282.0 L836.7 282.0 L852.0 219.8" />
+  <line x1="56" y1="282" x2="852" y2="282" stroke="#909b98" stroke-width="1" />
+  <text class="micro" x="56.0" y="315">AUG</text><text class="micro" x="132.5" y="315">SEP</text><text class="micro" x="193.8" y="315">OCT</text><text class="micro" x="255.0" y="315">NOV</text><text class="micro" x="331.5" y="315">DEC</text><text class="micro" x="392.8" y="315">JAN</text><text class="micro" x="454.0" y="315">FEB</text><text class="micro" x="515.2" y="315">MAR</text><text class="micro" x="591.8" y="315">APR</text><text class="micro" x="653.0" y="315">MAY</text><text class="micro" x="729.5" y="315">JUN</text><text class="micro" x="790.8" y="315">JUL</text><text class="micro" x="852.0" y="315">AUG</text>
+
+  <text class="label" x="936" y="42">SOURCE FINGERPRINT</text>
+  <text class="micro" x="1144" y="42" text-anchor="end">LATEST PUBLIC HEAD</text>
+  <g class="seal-pulse" fill="none" stroke="#909b98" stroke-width="1">
+    <circle cx="1022" cy="194" r="100" />
+    <circle cx="1022" cy="194" r="92" stroke-dasharray="1 8" />
+  </g>
+  <g class="seal-orbit" fill="none" stroke="#155367" stroke-width="1">
+    <line x1="1022.0" y1="110.0" x2="1022.0" y2="102.0" /><line x1="1048.0" y1="114.1" x2="1049.2" y2="110.3" /><line x1="1071.4" y1="126.0" x2="1074.9" y2="121.2" /><line x1="1090.0" y1="144.6" x2="1094.8" y2="141.1" /><line x1="1101.9" y1="168.0" x2="1107.6" y2="166.2" /><line x1="1106.0" y1="194.0" x2="1114.0" y2="194.0" /><line x1="1101.9" y1="220.0" x2="1107.6" y2="221.8" /><line x1="1090.0" y1="243.4" x2="1093.2" y2="245.7" /><line x1="1071.4" y1="262.0" x2="1076.1" y2="268.4" /><line x1="1048.0" y1="273.9" x2="1050.4" y2="281.5" /><line x1="1022.0" y1="278.0" x2="1022.0" y2="286.0" /><line x1="996.0" y1="273.9" x2="994.2" y2="279.6" /><line x1="972.6" y1="262.0" x2="967.9" y2="268.4" /><line x1="954.0" y1="243.4" x2="949.2" y2="246.9" /><line x1="942.1" y1="220.0" x2="934.5" y2="222.4" /><line x1="938.0" y1="194.0" x2="934.0" y2="194.0" /><line x1="942.1" y1="168.0" x2="938.3" y2="166.8" /><line x1="954.0" y1="144.6" x2="947.6" y2="139.9" /><line x1="972.6" y1="126.0" x2="969.1" y2="121.2" /><line x1="996.0" y1="114.1" x2="994.8" y2="110.3" />
+  </g>
+  <g fill="none" stroke="#bbc1bc" stroke-width="0.8" opacity="0.68"><line x1="1022.0" y1="167.0" x2="1022.0" y2="129.6" /><line x1="1032.1" y1="162.9" x2="1044.1" y2="125.9" /><line x1="1045.2" y1="162.1" x2="1065.1" y2="134.6" /><line x1="1053.9" y1="170.8" x2="1072.6" y2="157.2" /><line x1="1050.9" y1="184.6" x2="1086.7" y2="173.0" /><line x1="1063.7" y1="194.0" x2="1081.0" y2="194.0" /><line x1="1052.0" y1="203.7" x2="1076.4" y2="211.7" /><line x1="1043.8" y1="209.9" x2="1062.5" y2="223.4" /><line x1="1041.9" y1="221.3" x2="1056.7" y2="241.7" /><line x1="1030.3" y1="219.7" x2="1038.6" y2="245.0" /><line x1="1022.0" y1="221.0" x2="1022.0" y2="269.2" /><line x1="1010.5" y1="229.4" x2="999.3" y2="263.8" /><line x1="999.5" y1="225.0" x2="984.1" y2="246.1" /><line x1="993.7" y1="214.5" x2="971.4" y2="230.8" /><line x1="987.7" y1="205.1" x2="960.8" y2="213.9" /><line x1="989.3" y1="194.0" x2="955.8" y2="194.0" /><line x1="989.9" y1="183.6" x2="974.4" y2="178.5" /><line x1="1000.2" y1="178.1" x2="974.3" y2="159.3" /><line x1="998.8" y1="162.1" x2="991.6" y2="152.1" /><line x1="1011.2" y1="160.8" x2="1006.5" y2="146.4" /></g>
+  <path d="M1022.0 129.6 L1044.1 125.9 L1065.1 134.6 L1072.6 157.2 L1086.7 173.0 L1081.0 194.0 L1076.4 211.7 L1062.5 223.4 L1056.7 241.7 L1038.6 245.0 L1022.0 269.2 L999.3 263.8 L984.1 246.1 L971.4 230.8 L960.8 213.9 L955.8 194.0 L974.4 178.5 L974.3 159.3 L991.6 152.1 L1006.5 146.4 Z" fill="#155367" fill-opacity="0.08" stroke="#155367" stroke-width="1.3" />
+  <path d="M1022.0 167.0 L1032.1 162.9 L1045.2 162.1 L1053.9 170.8 L1050.9 184.6 L1063.7 194.0 L1052.0 203.7 L1043.8 209.9 L1041.9 221.3 L1030.3 219.7 L1022.0 221.0 L1010.5 229.4 L999.5 225.0 L993.7 214.5 L987.7 205.1 L989.3 194.0 L989.9 183.6 L1000.2 178.1 L998.8 162.1 L1011.2 160.8 Z" fill="#efede6" fill-opacity="0.84" stroke="#c45f43" stroke-width="1.2" />
+  <text x="1022" y="199" text-anchor="middle" fill="#171b1c" font-family="Georgia, 'Times New Roman', serif" font-size="24">YH</text>
+  <text class="micro" x="1022" y="302" text-anchor="middle">8CD7A54 / HUIXIANGYANG/WECLAW</text>
+</svg>
