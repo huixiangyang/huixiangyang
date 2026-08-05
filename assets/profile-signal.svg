@@ -73,12 +73,11 @@
     <text class="eyebrow" x="29" y="11">YHX / SIGNAL OBSERVATORY</text>
   </g>
   <text class="title" x="34" y="62">ENGINEERING TELEMETRY</text>
-  <text class="micro" x="1162" y="43" text-anchor="end">SYNC 2026-08-05 14:15 CST</text>
+  <text class="micro" x="1162" y="43" text-anchor="end">SYNC 2026-08-05 14:18 CST</text>
 
   <g>
     <text class="section-label" x="34" y="112">PUBLIC ACTIVITY ARRAY</text>
-    
-        <g transform="translate(52 158)">
+    <g transform="translate(52 158)">
           <text class="metric-value" x="0" y="0">26</text>
           <text class="metric-label" x="0" y="24">PUSH EVENTS / 90D</text>
         </g>
@@ -100,8 +99,7 @@
     <text class="section-label" x="429" y="112">FOURTEEN DAY SIGNAL</text>
     <line x1="437" y1="254" x2="872" y2="254" stroke="#9fd8ca" stroke-opacity="0.17" />
     <line x1="437" y1="210" x2="872" y2="210" stroke="#9fd8ca" stroke-opacity="0.08" stroke-dasharray="3 7" />
-    
-          <line class="signal-bar" x1="437.0" y1="254" x2="437.0" y2="254.0" opacity="0.1" />
+    <line class="signal-bar" x1="437.0" y1="254" x2="437.0" y2="254.0" opacity="0.1" />
           <circle class="signal-point point-0" cx="437.0" cy="254.0" r="2" />
           <line class="signal-bar" x1="470.5" y1="254" x2="470.5" y2="254.0" opacity="0.1" />
           <circle class="signal-point point-1" cx="470.5" cy="254.0" r="2" />

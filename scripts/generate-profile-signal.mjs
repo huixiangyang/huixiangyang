@@ -145,7 +145,8 @@ function createSignalGeometry(signal) {
           <line class="signal-bar" x1="${x.toFixed(1)}" y1="${baseline}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" opacity="${count ? 0.34 : 0.1}" />
           <circle class="signal-point point-${index}" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${count ? 3.4 : 2}" />`,
       )
-      .join(""),
+      .join("")
+      .trim(),
   };
 }
 
@@ -182,7 +183,8 @@ function renderSvg(summary, now) {
           <text class="metric-label" x="0" y="24">${escapeXml(label)} / 90D</text>
         </g>`;
     })
-    .join("");
+    .join("")
+    .trim();
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title description">
