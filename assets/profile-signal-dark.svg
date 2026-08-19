@@ -68,7 +68,7 @@
     </g>
     <text class="label" x="30" y="8">YANG HUIXIANG / LIVE FIELD NOTE</text>
   </g>
-  <text class="micro" x="1144" y="47" text-anchor="end">UPDATED 18 AUG 2026 10:29 CST</text>
+  <text class="micro" x="1144" y="47" text-anchor="end">UPDATED 19 AUG 2026 10:32 CST</text>
 
   <text class="headline" x="56" y="121">
     <tspan>Work</tspan><tspan class="headline-accent"> / </tspan><tspan>in motion</tspan>
@@ -76,7 +76,7 @@
   <text class="label" x="58" y="151">PUBLIC ENGINEERING ACTIVITY, RENDERED AS A DAILY FIELD NOTE</text>
 
   <text class="label" x="56" y="211">TODAY&apos;S OPERATING PRINCIPLE</text>
-  <text class="principle" x="56" y="252"><tspan x="56" dy="0">Measure before you guess.</tspan></text>
+  <text class="principle" x="56" y="252"><tspan x="56" dy="0">Build for the next handoff.</tspan></text>
   <line x1="56" y1="302" x2="168" y2="302" stroke="#d27b60" stroke-width="2" />
   <circle cx="181" cy="302" r="3" fill="#6ba9b5" />
   <text class="mode" x="197" y="306">ACTIVE SIGNAL</text>
@@ -84,11 +84,11 @@
   <g>
     <text class="label" x="624" y="126">FOURTEEN-DAY FIELD TRACE</text>
     <text class="micro" x="1144" y="126" text-anchor="end">EVENT DENSITY / UTC</text>
-    <path d="M624 292 L624.0 176.0 L664.0 264.5 L704.0 292.0 L744.0 292.0 L784.0 292.0 L824.0 292.0 L864.0 292.0 L904.0 292.0 L944.0 288.9 L984.0 279.8 L1024.0 292.0 L1064.0 292.0 L1104.0 292.0 L1144.0 292.0 L1144 292 Z" fill="url(#signalArea)" />
+    <path d="M624 292 L624.0 176.0 L664.0 292.0 L704.0 292.0 L744.0 292.0 L784.0 292.0 L824.0 292.0 L864.0 292.0 L904.0 279.1 L944.0 240.4 L984.0 292.0 L1024.0 292.0 L1064.0 292.0 L1104.0 292.0 L1144.0 292.0 L1144 292 Z" fill="url(#signalArea)" />
     <line class="day-rule" x1="624.0" y1="158" x2="624.0" y2="292" opacity="0.44" />
           <circle class="signal-point point-0" cx="624.0" cy="176.0" r="4.4" />
-          <line class="day-rule" x1="664.0" y1="158" x2="664.0" y2="292" opacity="0.44" />
-          <circle class="signal-point point-1" cx="664.0" cy="264.5" r="4.4" />
+          <line class="day-rule" x1="664.0" y1="158" x2="664.0" y2="292" opacity="0.2" />
+          <circle class="signal-point point-1" cx="664.0" cy="292.0" r="2.2" />
           <line class="day-rule" x1="704.0" y1="158" x2="704.0" y2="292" opacity="0.2" />
           <circle class="signal-point point-2" cx="704.0" cy="292.0" r="2.2" />
           <line class="day-rule" x1="744.0" y1="158" x2="744.0" y2="292" opacity="0.2" />
@@ -99,12 +99,12 @@
           <circle class="signal-point point-5" cx="824.0" cy="292.0" r="2.2" />
           <line class="day-rule" x1="864.0" y1="158" x2="864.0" y2="292" opacity="0.2" />
           <circle class="signal-point point-6" cx="864.0" cy="292.0" r="2.2" />
-          <line class="day-rule" x1="904.0" y1="158" x2="904.0" y2="292" opacity="0.2" />
-          <circle class="signal-point point-7" cx="904.0" cy="292.0" r="2.2" />
+          <line class="day-rule" x1="904.0" y1="158" x2="904.0" y2="292" opacity="0.44" />
+          <circle class="signal-point point-7" cx="904.0" cy="279.1" r="4.4" />
           <line class="day-rule" x1="944.0" y1="158" x2="944.0" y2="292" opacity="0.44" />
-          <circle class="signal-point point-8" cx="944.0" cy="288.9" r="4.4" />
-          <line class="day-rule" x1="984.0" y1="158" x2="984.0" y2="292" opacity="0.44" />
-          <circle class="signal-point point-9" cx="984.0" cy="279.8" r="4.4" />
+          <circle class="signal-point point-8" cx="944.0" cy="240.4" r="4.4" />
+          <line class="day-rule" x1="984.0" y1="158" x2="984.0" y2="292" opacity="0.2" />
+          <circle class="signal-point point-9" cx="984.0" cy="292.0" r="2.2" />
           <line class="day-rule" x1="1024.0" y1="158" x2="1024.0" y2="292" opacity="0.2" />
           <circle class="signal-point point-10" cx="1024.0" cy="292.0" r="2.2" />
           <line class="day-rule" x1="1064.0" y1="158" x2="1064.0" y2="292" opacity="0.2" />
@@ -113,7 +113,7 @@
           <circle class="signal-point point-12" cx="1104.0" cy="292.0" r="2.2" />
           <line class="day-rule" x1="1144.0" y1="158" x2="1144.0" y2="292" opacity="0.2" />
           <circle class="signal-point point-13" cx="1144.0" cy="292.0" r="2.2" />
-    <path class="signal-line" d="M624.0 176.0 L664.0 264.5 L704.0 292.0 L744.0 292.0 L784.0 292.0 L824.0 292.0 L864.0 292.0 L904.0 292.0 L944.0 288.9 L984.0 279.8 L1024.0 292.0 L1064.0 292.0 L1104.0 292.0 L1144.0 292.0" />
+    <path class="signal-line" d="M624.0 176.0 L664.0 292.0 L704.0 292.0 L744.0 292.0 L784.0 292.0 L824.0 292.0 L864.0 292.0 L904.0 279.1 L944.0 240.4 L984.0 292.0 L1024.0 292.0 L1064.0 292.0 L1104.0 292.0 L1144.0 292.0" />
     <circle class="endpoint-ring" cx="1144.0" cy="292.0" r="12" fill="none" stroke="#d27b60" stroke-width="1" />
     <circle cx="1144.0" cy="292.0" r="3.4" fill="#d27b60" />
     <text class="micro" x="624" y="311">T−13 DAYS</text>
