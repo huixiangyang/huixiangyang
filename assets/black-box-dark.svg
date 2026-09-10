@@ -25,10 +25,10 @@
   <rect x="0.75" y="0.75" width="1198.5" height="248.5" rx="15.25" fill="none" stroke="#465354" stroke-opacity="0.72" stroke-width="1.5" />
   <path d="M548 28V222M32 222H1168" fill="none" stroke="#2b3435" />
 
-  <text class="label" x="48" y="42">INTERNAL READOUT / ACTIVE SIGNAL</text>
+  <text class="label" x="48" y="42">INTERNAL READOUT / DEEP WORK</text>
   <text class="headline" x="48" y="101">Black <tspan fill="#d27b60" font-style="italic">/</tspan> box</text>
   <text class="label" x="50" y="135">CURRENT TRANSMISSION</text>
-  <text x="50" y="168" fill="#e9ebe5" font-family="Georgia, 'Times New Roman', serif" font-size="23" font-style="italic">Build for the next handoff.</text>
+  <text x="50" y="168" fill="#e9ebe5" font-family="Georgia, 'Times New Roman', serif" font-size="23" font-style="italic">Trace the real path.</text>
   <rect class="cursor" x="50" y="190" width="34" height="2" fill="#6ba9b5" />
 
   <text class="label" x="588" y="42">LATEST PUBLIC HEAD</text>
