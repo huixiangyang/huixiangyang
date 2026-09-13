@@ -4,7 +4,7 @@
 
 <br>
 
-# Yang Huixiang
+# Huixiang Yang
 
 **Software engineer building AI systems, developer tools, and durable infrastructure.**
 
