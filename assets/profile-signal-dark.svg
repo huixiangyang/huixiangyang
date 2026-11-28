@@ -68,7 +68,7 @@
     </g>
     <text class="label" x="30" y="8">YANG HUIXIANG / LIVE FIELD NOTE</text>
   </g>
-  <text class="micro" x="1144" y="47" text-anchor="end">UPDATED 27 NOV 2026 17:41 CST</text>
+  <text class="micro" x="1144" y="47" text-anchor="end">UPDATED 28 NOV 2026 16:55 CST</text>
 
   <text class="headline" x="56" y="121">
     <tspan>Work</tspan><tspan class="headline-accent"> / </tspan><tspan>in motion</tspan>
@@ -76,7 +76,7 @@
   <text class="label" x="58" y="151">PUBLIC ENGINEERING ACTIVITY, RENDERED AS A DAILY FIELD NOTE</text>
 
   <text class="label" x="56" y="211">TODAY&apos;S OPERATING PRINCIPLE</text>
-  <text class="principle" x="56" y="252"><tspan x="56" dy="0">Make state visible.</tspan></text>
+  <text class="principle" x="56" y="252"><tspan x="56" dy="0">Small surfaces. Strong</tspan><tspan x="56" dy="35">contracts.</tspan></text>
   <line x1="56" y1="302" x2="168" y2="302" stroke="#d27b60" stroke-width="2" />
   <circle cx="181" cy="302" r="3" fill="#6ba9b5" />
   <text class="mode" x="197" y="306">DEEP WORK</text>
@@ -122,7 +122,7 @@
 
   <g transform="translate(56 359)">
           <text class="metric-index" x="0" y="0">01</text>
-          <text class="metric-value" x="38" y="0">18</text>
+          <text class="metric-value" x="38" y="0">16</text>
           <text class="metric-label" x="38" y="22">PUSH EVENTS / 90D</text>
         </g>
         <g transform="translate(340 359)">
